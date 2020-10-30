@@ -3,7 +3,7 @@ import 'package:auth_http/style/FontCustom.dart';
 import 'package:auth_http/style/TestStyleCustom.dart';
 import 'package:flutter/material.dart';
 
-class TestScreen extends StatelessWidget {
+class TestScreenNew extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage>
       Padding(
           padding: EdgeInsets.all(15),
           child: Text(
-            "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from ",
+            "The sgsgstandard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from ",
             style: TestStyleCustom.regularStyle(
                 ColorCustom.gray_dark, FontCustom.fontSizeMediun16),
           )),
@@ -66,16 +66,80 @@ class _MyHomePageState extends State<MyHomePage>
             style: TestStyleCustom.regularStyle(
                 ColorCustom.gray_dark, FontCustom.fontSizeMediun16),
           )),
-      // _aboutHorizontalImageListView(),
+      Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: Container(
+              height: 200.0,
+              child: Expanded(
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 5,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(left: 3, right: 3),
+                                width: 120,
+                                height: 180,
+                                alignment: Alignment.center,
+                                child: GestureDetector(
+                                    onTap: () {},
+                                    child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.network(
+                                            "https://i.ibb.co/n362W6v/online-instructor.jpg",
+                                            height: 200,
+                                            width: 120,
+                                            fit: BoxFit.cover)))),
+                          ],
+                        );
+                      })))),
       Expanded(
           child: ListView.builder(
         physics: NeverScrollableScrollPhysics(), //AlwaysScrollableScrollPhysics
-        itemCount: 3,
+        itemCount: 4,
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text("sgs"),
+            title: Container(
+                child: Row(
+              children: <Widget>[
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Image.network(
+                        "https://i.ibb.co/n362W6v/online-instructor.jpg",
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover)),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            "coashAboutList[index].title",
+                            style: TestStyleCustom.mediumStyle(
+                                ColorCustom.gray_dark,
+                                FontCustom.fontSizeMediun),
+                          )),
+                      Padding(
+                          padding: EdgeInsets.only(left: 5, right: 5),
+                          child: Text(
+                            "coashAboutList[index].desc",
+                            style: TestStyleCustom.regularStyle(
+                                ColorCustom.gray_dark,
+                                FontCustom.fontSizeSmall),
+                          ))
+                    ],
+                  ),
+                )
+              ],
+            )),
           );
         },
       ))
@@ -83,6 +147,38 @@ class _MyHomePageState extends State<MyHomePage>
     Text('second'),
     Text('third')
   ];
+
+  Widget _aboutHorizontalImageListView() {
+    return Padding(
+        padding: EdgeInsets.only(left: 10, right: 10),
+        child: Container(
+            height: 200.0,
+            child: Expanded(
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(left: 3, right: 3),
+                              width: 120,
+                              height: 180,
+                              alignment: Alignment.center,
+                              child: GestureDetector(
+                                  onTap: () {},
+                                  child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: Image.network(
+                                          "https://i.ibb.co/n362W6v/online-instructor.jpg",
+                                          height: 200,
+                                          width: 120,
+                                          fit: BoxFit.cover)))),
+                        ],
+                      );
+                    }))));
+  }
 
   TabController _tabController;
   Widget _AboutWiget() {
